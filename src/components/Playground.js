@@ -74,6 +74,7 @@ class Playground extends Component {
             bottom: 0,
             margin: '0 auto',
             backgroundImage: `url(${playgroundBackground})`,
+            backgroundColor: 'saddlebrown',
             outline: 'none',
             borderRadius: '15px',
             border: '20px solid black'

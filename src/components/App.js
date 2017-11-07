@@ -35,6 +35,7 @@ class App extends Component {
     getGameStyles() {
         return {
             height: '100%',
+            backgroundColor: 'green',
             backgroundImage: `url(${wallpaper})`,
             backgroundRepeat: 'repeat',
             backgroundAttachment: 'fixed',
