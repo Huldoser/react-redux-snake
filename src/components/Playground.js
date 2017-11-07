@@ -61,6 +61,10 @@ class Playground extends Component {
         }
     }
 
+    shouldComponentUpdate(nextProps) {
+        return nextProps !== this.props;
+    }
+
     getPlaygroundStyle() {
         const {playgroundWidthInPx, playgroundHeightInPx} = this.props;
 

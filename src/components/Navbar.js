@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import AppBar from 'material-ui/AppBar';
 import {NAVBAR_HEIGHT} from "../helpers/constants";
 
-class Navbar extends Component {
+class Navbar extends PureComponent {
 
     static propTypes = {
         title: PropTypes.string,

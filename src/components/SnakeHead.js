@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
-class SnakeHead extends Component {
+class SnakeHead extends PureComponent {
 
     static propTypes = {
         snakeHeadGridPositions: PropTypes.objectOf(PropTypes.number).isRequired,

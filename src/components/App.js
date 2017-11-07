@@ -32,6 +32,10 @@ class App extends Component {
         setPlaygroundSize(fixedGridSize.width, fixedGridSize.height, blockSizeInPx)
     }
 
+    shouldComponentUpdate(nextProps) {
+        return nextProps !== this.props;
+    }
+
     getGameStyles() {
         return {
             height: '100%',
