@@ -9,6 +9,7 @@ import {randomizeFood} from '../actions/food';
 import {setPlaygroundSize, setScore, setSpeed} from '../actions/game';
 import playgroundBackground from '../assets/images/playground-background.jpg';
 import {VALID_MOVES} from "../helpers/constants";
+import Swipeable from 'react-swipeable'
 
 class Playground extends Component {
 
@@ -118,16 +119,23 @@ class Playground extends Component {
         && setScore(score + 10);
     };
 
+    handleSwipe(direction) {
+        return VALID_MOVES.all.find(validKey => validKey === direction) && this.props.setPlayerVelocity(direction);
+    }
+
     render() {
         const {snakeHeadGridPositions, foodGridPosition} = this.props;
 
         return (
-            <div className='playground' ref='playground' style={this.getPlaygroundStyle()}
-                 onKeyDown={(e) => this.onKeyDown(e)} tabIndex='0'>
-                <Food foodGridPosition={foodGridPosition}/>
-                <SnakeHead snakeHeadGridPositions={snakeHeadGridPositions}/>
-                {this.getSnakeTail()}
-            </div>
+            <Swipeable onSwipedLeft={() => this.handleSwipe('a')} onSwipedUp={() => this.handleSwipe('w')}
+                       onSwipedDown={() => this.handleSwipe('s')} onSwipedRight={() => this.handleSwipe('d')}>
+                <div className='playground' ref='playground' style={this.getPlaygroundStyle()}
+                     onKeyDown={(e) => this.onKeyDown(e)} tabIndex='0'>
+                    <Food foodGridPosition={foodGridPosition}/>
+                    <SnakeHead snakeHeadGridPositions={snakeHeadGridPositions}/>
+                    {this.getSnakeTail()}
+                </div>
+            </Swipeable>
         );
     }
 }
